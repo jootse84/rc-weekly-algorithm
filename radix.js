@@ -47,7 +47,7 @@ const radixSort = (input) => {
 
   for (var i of Array(max).fill().map((_, i) => i)) {
     var output = Array(input.length)
-    var partition = input.map((x) => x.toString().length > i ? x % Math.pow(10, i + 1) : 0)
+    var partition = input.map((x) => x.toString().length > i ? parseInt(String(x % Math.pow(10, i + 1)).charAt(0)) : 0)
 
     countingSort(partition).forEach((elem, index) => {
       output[index] = input[elem]
